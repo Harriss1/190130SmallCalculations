@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 result2Text.setText(inputNumberStr);
                 MyView test = new MyView();
                 //test.alterText();
+                //change after latest push from 18:15
 
             }
         });
