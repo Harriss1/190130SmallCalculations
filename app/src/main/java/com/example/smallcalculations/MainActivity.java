@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 MyView test = new MyView();
                 //test.alterText();
                 //change after latest push from 18:15
+                //change after switching to branch learnsession190202
 
             }
         });
