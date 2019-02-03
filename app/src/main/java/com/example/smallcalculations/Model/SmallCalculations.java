@@ -1,4 +1,4 @@
-package com.example.smallcalculations;
+package com.example.smallcalculations.Model;
 
 public class SmallCalculations {
     private int m_time;

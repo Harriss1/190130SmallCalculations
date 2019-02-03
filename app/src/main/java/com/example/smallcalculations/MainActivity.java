@@ -2,8 +2,6 @@ package com.example.smallcalculations;
 
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,14 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.EditText;
-
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
-import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,12 +20,10 @@ public class MainActivity extends AppCompatActivity {
             "Don’t count on it","Ask again later","You may rely on it","Without a doubt","Outlook not so good","It's decidedly so","Signs point to yes","Yes definitely","Yes","My sources say NO"
     };
 
+// Why do I have to declare EditText and TextView here, but ResultText can be declared inside?
     EditText inputNumber;
-    TextView resultText;
-    Button doStuffButton;
-    ImageView mFortuneBallImage;
-    TextView result2Text;
 
+    TextView result2Text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +32,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        resultText = (TextView) findViewById(R.id.result);
-        resultText.setText("Here we display the result.");
-        SmallCalculations testObject = new SmallCalculations();
-        resultText.setText(testObject.getName());
 
 
 
+        /*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +61,18 @@ public class MainActivity extends AppCompatActivity {
                 var2 = newTest.getDisplayableResult();
 
             }
-        });
+        });*/
 
-        // implement button "Do Stuff" fab.setOnClickListener();
-        doStuffButton = (Button)findViewById(R.id.button);
-        doStuffButton.setOnClickListener(new View.OnClickListener() {
+        //Why can I declare TextView resultText as local variable?
+        //because it isn't used in the overwritten function!!!
+        //This also means, that every view-element that I want to modify after the run, must be global.
+        TextView resultText;
+        resultText = (TextView) findViewById(R.id.result);
+        resultText.setText("Here we display the result.");
+
+        // implement button "Calculate" fab.setOnClickListener();
+        Button calculateButton = (Button)findViewById(R.id.button);
+        calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 inputNumber = (EditText) findViewById(R.id.phone);

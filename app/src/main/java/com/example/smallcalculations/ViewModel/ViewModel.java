@@ -1,4 +1,6 @@
-package com.example.smallcalculations;
+package com.example.smallcalculations.ViewModel;
+
+import com.example.smallcalculations.Model.SmallCalculations;
 
 public class ViewModel {
     public class DisplayableResult{
