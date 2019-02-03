@@ -3,6 +3,8 @@ package com.example.smallcalculations;
 public class SmallCalculations {
     private int m_time;
     private String name;
+    private int summand1, summand2;
+    private int summandsResult=0;
 
     public SmallCalculations(){
         m_time=5;
@@ -25,4 +27,17 @@ public class SmallCalculations {
         name=newName;
     }
 
+    public int getResult(){
+        return summandsResult;
+    }
+
+    public void setSummand1(int a){
+        summand1=a;
+    }
+    public void setSummand2(int a){
+        summand2=a;
+    }
+    public void addSummands(){
+        summandsResult=summand1+summand2;
+    }
 }

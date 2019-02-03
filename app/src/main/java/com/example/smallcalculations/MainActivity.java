@@ -66,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
                 //change after latest push from 18:15
                 //change after switching to branch learnsession190202
 
+                ViewModel newTest = new ViewModel();
+                ViewModel.DisplayableResult var1 = newTest.getResult();
+                int helloThere = var1.result;
+                newTest.doCalculate();
+                ViewModel.DisplayableResult var2;
+                var2 = newTest.getDisplayableResult();
+
             }
         });
 
