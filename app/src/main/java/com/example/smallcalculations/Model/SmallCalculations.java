@@ -44,7 +44,7 @@ public class SmallCalculations {
 
 
     public void calculateResult(double a, double b, Operator operatorType){
-        double result=10;
+        double result=9.999999;
         boolean calcSuccess=false;
         String errorMessage="";
         boolean calcValid=true;
@@ -81,6 +81,7 @@ public class SmallCalculations {
             }
         }
 
+        if (result == -0) {result=0;}
         resultContainer.calculationSuccessful=calcSuccess;
         resultContainer.errorMessage=errorMessage;
         resultContainer.resultNumber=result;

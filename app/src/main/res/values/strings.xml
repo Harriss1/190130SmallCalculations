@@ -2,4 +2,12 @@
     <string name="app_name">Small Calculations</string>
     <string name="action_settings">Settings</string>
     <string name="calculate_description">a+a</string>
+    <string-array name="planets_array">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
 </resources>
+
+

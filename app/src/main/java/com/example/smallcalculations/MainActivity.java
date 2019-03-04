@@ -20,8 +20,11 @@ import com.example.smallcalculations.ViewModel.ViewModel;
 
 import org.w3c.dom.Text;
 
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText inputFirstNumber;
     EditText inputSecondNumber;
+    int glOperator=0; //0=+, 1=-, 2=*, 3=/
 
     TextView result2Text;
 
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
 
 
@@ -66,16 +73,33 @@ public class MainActivity extends AppCompatActivity {
                 SmallCalculationsConnector calculation = new SmallCalculationsConnector();
                 calculation.setA(inputA);
                 calculation.setB(inputB);
-                calculation.setOperator(1);
+                calculation.setOperator(glOperator);
 
                 DisplayableResult result=calculation.getResult();
                 //result.result=30;
-                result2Text.setText(Double.toString(result.result));
+                if (result.calculationSuccessful) {
+                    result2Text.setText(Double.toString(result.result));
+                } else {
+                  result2Text.setText("Error: " +result.errorMessage);
+                }
 
 
                 //result2Text.setText("Nice Stuff");
             }
         });
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerOperatorType);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                        R.array.planets_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+                spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -99,6 +123,17 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
 
+        glOperator=pos;
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
 
 }
