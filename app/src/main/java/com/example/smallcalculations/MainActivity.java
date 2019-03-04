@@ -16,10 +16,13 @@ import com.example.smallcalculations.Model.SmallCalculations;
 import com.example.smallcalculations.ViewModel.SmallCalculationsConnector;
 import com.example.smallcalculations.ViewModel.DisplayableResult;
 
+import com.example.smallcalculations.Model.VersionControl;
+
 import com.example.smallcalculations.ViewModel.ViewModel;
 
 import org.w3c.dom.Text;
 
+import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView;
@@ -118,6 +121,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.action_version){
+            VersionControl v = new VersionControl();
+            String version = v.getVersionString();
+            Toast.makeText(MainActivity.this, ("Build version: "+version), Toast.LENGTH_LONG).show();
             return true;
         }
 
