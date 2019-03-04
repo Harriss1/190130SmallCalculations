@@ -1,15 +1,18 @@
 package com.example.smallcalculations.ViewModel;
 
+import android.widget.TextView;
+
 import com.example.smallcalculations.Model.SmallCalculations;
 
+import org.w3c.dom.Text;
+
 public class ViewModel {
-    public class DisplayableResult{
-        public int result;
-        public boolean calculationSuccessful;
-        public String errorMessage;
-    }
 
 
+
+
+
+    /*
     //implement: errormessage: model not connected
     //implement: model not knowing the viewmodel
     private class CalculationsModel{
@@ -71,4 +74,5 @@ public class ViewModel {
     public DisplayableResult getDisplayableResult(){
         return test2;
     }
+    */
 }

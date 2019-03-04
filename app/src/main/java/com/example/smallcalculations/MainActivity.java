@@ -12,16 +12,24 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 
+import com.example.smallcalculations.Model.SmallCalculations;
+import com.example.smallcalculations.ViewModel.SmallCalculationsConnector;
+import com.example.smallcalculations.ViewModel.DisplayableResult;
+
+import com.example.smallcalculations.ViewModel.ViewModel;
+
+import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity {
 
 
-    String fortuneList[] = {
-            "Don’t count on it","Ask again later","You may rely on it","Without a doubt","Outlook not so good","It's decidedly so","Signs point to yes","Yes definitely","Yes","My sources say NO"
-    };
 
-// Why do I have to declare EditText and TextView here, but ResultText can be declared inside?
-    EditText inputNumber;
+    // Why do I have to declare EditText and TextView here, but ResultText can be declared inside?
+    //-> everything that wants to be modified after run needs to be declared globally here...
+
+    EditText inputFirstNumber;
+    EditText inputSecondNumber;
 
     TextView result2Text;
 
@@ -34,35 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                inputNumber = (EditText) findViewById(R.id.phone);
-                result2Text = (TextView)findViewById(R.id.result2);
-                String inputNumberStr = inputNumber.getText().toString();
-                double inputNumberDouble = Double.parseDouble(inputNumber.getText().toString());
-                result2Text.setText(inputNumberStr);
-                MyView test = new MyView();
-                //test.alterText();
-                //change after latest push from 18:15
-                //change after switching to branch learnsession190202
-
-                ViewModel newTest = new ViewModel();
-                ViewModel.DisplayableResult var1 = newTest.getResult();
-                int helloThere = var1.result;
-                newTest.doCalculate();
-                ViewModel.DisplayableResult var2;
-                var2 = newTest.getDisplayableResult();
-
-            }
-        });*/
-
         //Why can I declare TextView resultText as local variable?
         //because it isn't used in the overwritten function!!!
         //This also means, that every view-element that I want to modify after the run, must be global.
@@ -71,15 +50,30 @@ public class MainActivity extends AppCompatActivity {
         resultText.setText("Here we display the result.");
 
         // implement button "Calculate" fab.setOnClickListener();
-        Button calculateButton = (Button)findViewById(R.id.button);
+        final Button calculateButton = (Button)findViewById(R.id.button);
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputNumber = (EditText) findViewById(R.id.phone);
+                inputFirstNumber = (EditText) findViewById(R.id.phone);
+                inputSecondNumber =(EditText) findViewById(R.id.phone2);
+
                 result2Text = (TextView)findViewById(R.id.result2);
-                String inputNumberStr = inputNumber.getText().toString();
-                double inputNumberDouble = Double.parseDouble(inputNumber.getText().toString());
-                result2Text.setText("Nice Stuff");
+
+                String inputA = inputFirstNumber.getText().toString();
+                String inputB = inputSecondNumber.getText().toString();
+                String inputOperator = "NOTSET";
+
+                SmallCalculationsConnector calculation = new SmallCalculationsConnector();
+                calculation.setA(inputA);
+                calculation.setB(inputB);
+                calculation.setOperator(1);
+
+                DisplayableResult result=calculation.getResult();
+                //result.result=30;
+                result2Text.setText(Double.toString(result.result));
+
+
+                //result2Text.setText("Nice Stuff");
             }
         });
     }
