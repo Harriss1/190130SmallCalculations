@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //This also means, that every view-element that I want to modify after the run, must be global.
         TextView resultText;
         resultText = (TextView) findViewById(R.id.result);
-        resultText.setText("Here we display the result.");
+        resultText.setText("Input two numbers and select operation.");
 
         // implement button "Calculate" fab.setOnClickListener();
         final Button calculateButton = (Button)findViewById(R.id.button);

@@ -13,11 +13,12 @@
         android:id="@+id/descriptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calculate_description"
         android:gravity="center"
+        android:text="@string/calculate_description"
 
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/calculate_description_text_size"/>
+        android:textSize="@dimen/calculate_description_text_size"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
@@ -25,8 +26,8 @@
 
         android:gravity="center"
 
-        app:layout_constraintTop_toBottomOf="@+id/descriptionText"
-        android:textSize="@dimen/calculate_description_text_size"/>
+        android:textSize="@dimen/calculate_description_text_size"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
     <EditText
         android:id="@+id/phone"
@@ -49,24 +50,27 @@
     <TextView
         android:id="@+id/result2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginBottom="300dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:text="(result)"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="@dimen/result_text_size"
         android:textStyle="bold"
-        android:text="result2"
-        app:layout_constraintBottom_toTopOf="@id/hello"
-        android:textColor="@android:color/holo_red_dark"/>
+        app:layout_constraintBottom_toTopOf="@+id/hello"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World 18:40!"
+        android:text="Todo: Language selection, copy button change, correct code patterns (verctrl), No input behaviour, calculate after 2nd next."
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923" />
 
     <Button
         android:id="@+id/button"

@@ -72,9 +72,40 @@ Still, I should use my own system, and learn to store that little incrementing n
 
 
 gradle script:
-android {
-    defaultConfig {
-        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "int", "FOO", "52"
+        }
+        debug{
+            buildConfigField "int", "FOO", "52"
+
+            //def dateX = new Date().format("dd-MM-yyyy-hh-mm-ss")
+            //buildConfigField "String", "buildDateTry", dateX
+            def date = new Date()
+            def formattedDate = date.format('yyyyMMdd')
+            def formattedTime = date.format('HHmm')
+
+            buildConfigField "int", "formattedDate", formattedDate
+            buildConfigField "int", "formattedTime", formattedTime
+        }
     }
-}
+
+    //1
+    task addCurrentDate() {
+        // 2
+        android.applicationVariants.all { variant ->
+            // 3
+            variant.outputs.all { output ->
+                // 4
+                def date = new Date().format("dd-MM-yyyy")
+                // 5
+                def fileName = variant.name + "_" + date + ".apk"
+                // 6
+                output.outputFileName = fileName
+            }
+        }
+    }
  */
