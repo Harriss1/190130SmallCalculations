@@ -32,19 +32,18 @@
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="value without digits"
-        android:inputType="numberDecimal"
+        android:hint="double value"
         android:imeOptions="actionNext"
-        app:layout_constraintTop_toBottomOf="@+id/result"
-        />
+        android:inputType="numberSigned|number|numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <EditText
         android:id="@+id/phone2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="value without digits"
+        android:hint="double value"
         android:imeOptions="actionDone"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|number|numberDecimal"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <TextView
@@ -75,8 +74,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Do Stuff"
+        android:text="Calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone2" />
+
+    <Spinner
+        android:id="@+id/spinnerOperatorType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
 
 </android.support.constraint.ConstraintLayout>
