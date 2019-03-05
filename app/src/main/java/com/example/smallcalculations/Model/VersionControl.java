@@ -33,7 +33,7 @@ public class VersionControl {
 
     public String getVersionString() {
         String suffix = "";
-        if (isSnapshot) suffix = "snap-";
+        if (isSnapshot) suffix = "pre-";
         String comment = "";
         if (useComment) comment="-"+this.comment;
         String version =
